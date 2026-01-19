@@ -81,7 +81,7 @@ export function AboutSection() {
             <div className="aspect-square relative rounded-2xl overflow-hidden bg-gradient-to-br from-secondary via-background to-accent/10 p-4 sm:p-8 flex items-center justify-center group">
               <div className="relative w-full h-full animate-float">
                 <Image
-                  src="/Images/aanya.png"
+                  src="/images/aanya.png"
                   alt="AB Yoga Club Logo"
                   fill
                   className="object-cover drop-shadow-lg transition-transform duration-500 group-hover:scale-105"
