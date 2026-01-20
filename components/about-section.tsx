@@ -12,22 +12,22 @@ const skills = [
 
 const timeline = [
   {
-    year: "2018",
+    year: "2015",
     title: "Started Yoga Journey",
     description: "Began training at age 12 under renowned yoga guru",
   },
   {
-    year: "2020",
-    title: "State Championship",
+    year: "2015",
+    title: "First State Championship",
     description: "Won gold medal in state-level yoga competition",
   },
   {
-    year: "2022",
+    year: "2025",
     title: "National Recognition",
     description: "Qualified for National Yoga Championship",
   },
   {
-    year: "2024",
+    year: "2025-2026",
     title: "National Champion",
     description: "Secured first position at National Yoga Championship",
   },
@@ -82,7 +82,6 @@ export function AboutSection() {
               <div className="relative w-full h-full animate-float">
                 <Image
                   src="/images/aanya.png"
-                  alt="AB Yoga Club Logo"
                   fill
                   className="object-cover drop-shadow-lg transition-transform duration-500 group-hover:scale-105"
                 />

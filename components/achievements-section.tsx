@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { Trophy, Medal, Star, Users } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+import { Trophy, Medal, Star, Users } from "lucide-react";
 
 interface Achievement {
-  id: number
-  icon: "gold" | "silver" | "bronze" | "special"
-  title: string
-  competition: string
-  year: string
-  position: string
+  id: number;
+  icon: "gold" | "silver" | "bronze" | "special";
+  title: string;
+  competition: string;
+  year: string;
+  position: string;
 }
 
 const achievements: Achievement[] = [
@@ -18,7 +18,7 @@ const achievements: Achievement[] = [
     icon: "gold",
     title: "National Champion",
     competition: "National Yoga Championship",
-    year: "2024",
+    year: "2016 , 2025 , 2026",
     position: "1st Position",
   },
   {
@@ -26,7 +26,7 @@ const achievements: Achievement[] = [
     icon: "gold",
     title: "State Champion",
     competition: "MP State Yoga Championship",
-    year: "2023",
+    year: "2016",
     position: "1st Position",
   },
   {
@@ -34,7 +34,7 @@ const achievements: Achievement[] = [
     icon: "silver",
     title: "National Runner-up",
     competition: "National Yoga Championship",
-    year: "2023",
+    year: "2016",
     position: "2nd Position",
   },
   {
@@ -61,48 +61,54 @@ const achievements: Achievement[] = [
     year: "2023",
     position: "Special Award",
   },
-]
+];
 
 const stats = [
   { label: "Gold Medals", value: "12+", icon: Trophy },
   { label: "Competitions", value: "50+", icon: Medal },
   { label: "Years of Training", value: "8+", icon: Star },
   { label: "Students Taught", value: "500+", icon: Users },
-]
+];
 
 const iconColors = {
   gold: "text-yellow-500 bg-yellow-500/10",
   silver: "text-slate-400 bg-slate-400/10",
   bronze: "text-orange-600 bg-orange-600/10",
   special: "text-primary bg-primary/10",
-}
+};
 
 export function AchievementsSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section ref={sectionRef} id="achievements" className="py-16 sm:py-20 lg:py-24 bg-background overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="achievements"
+      className="py-16 sm:py-20 lg:py-24 bg-background overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+        <div
+          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           <p className="text-xs sm:text-sm tracking-[0.2em] text-primary font-medium mb-2">
             RECOGNITION
           </p>
@@ -125,7 +131,9 @@ export function AchievementsSection() {
               <p className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                 {stat.value}
               </p>
-              <p className="text-muted-foreground text-xs sm:text-sm mt-1">{stat.label}</p>
+              <p className="text-muted-foreground text-xs sm:text-sm mt-1">
+                {stat.label}
+              </p>
             </div>
           ))}
         </div>
@@ -170,5 +178,5 @@ export function AchievementsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
